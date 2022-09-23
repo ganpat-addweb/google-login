@@ -81,7 +81,9 @@
 
         // function to get response
         function handleCredentialResponse(response) {
+            console.log("🚀 ~ file: index.html ~ line 84 ~ handleCredentialResponse ~ handleCredentialResponse", handleCredentialResponse)
             const responsePayload = decodeJwtResponse(response.credential);
+            console.log("🚀 ~ file: index.html ~ line 86 ~ handleCredentialResponse ~ responsePayload", responsePayload)
             img.src = responsePayload.picture;
             getName.innerHTML = responsePayload.name;
             id.innerHTML = responsePayload.sub;
