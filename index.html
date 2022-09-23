@@ -82,7 +82,6 @@
         // function to get response
         function handleCredentialResponse(response) {
             const responsePayload = decodeJwtResponse(response.credential);
-            console.log("🚀 ~ file: index.html ~ line 85 ~ handleCredentialResponse ~ responsePayload", responsePayload)
             img.src = responsePayload.picture;
             getName.innerHTML = responsePayload.name;
             id.innerHTML = responsePayload.sub;
@@ -113,10 +112,11 @@
             var base64Url = token.split('.')[1];
             console.log("🚀 ~ file: index.html ~ line 113 ~ decodeJwtResponse ~ base64Url", base64Url)
             var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            console.log("🚀 ~ file: index.html ~ line 115 ~ decodeJwtResponse ~ base64", base64)
             var jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
                 return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
             }).join(''));
-            console.log("🚀 ~ file: index.html ~ line 119 ~ decodeJwtResponse ~ jsonPayload", jsonPayload)
+            console.log("🚀 ~ file: index.html ~ line 118 ~ jsonPayload ~ jsonPayload", jsonPayload)
             return JSON.parse(jsonPayload);
         }
 
