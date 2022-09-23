@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Signin</title>
+
+</head>
+
+<body>
+    <div id="google-button"></div>
+    <div class="container">
+        <img src="" alt="profile" class="img">
+        <div class="name"></div>
+        <br>
+        <lable>ID: </lable>
+        <div class="id"></div>
+        <br>
+        <lable>Email: </lable>
+        <div class="email"></div>
+        <button onClick="signOut()">Sign Out</button>
+    </div>
+    <script>
+        var googleButton = document.getElementById('google-button');
+        var container = document.getElementsByClassName('container')[0];
+        var img = document.getElementsByClassName('img')[0];
+        var getName = document.getElementsByClassName('name')[0];
+        var id = document.getElementsByClassName('id')[0];
+        var email = document.getElementsByClassName('email')[0];
+
+        // function to get response
+        function handleCredentialResponse(response) {
+          console.log("🚀 ~ file: index.html ~ line 35 ~ handleCredentialResponse ~ response", response)
+          
+        }
+
+        window.onload = function () {
+            google.accounts.id.initialize({
+                // replace your client id below
+                client_id: "623021744642-jdl436miod64hkef748voisfejshh3g2.apps.googleusercontent.com",
+                callback: handleCredentialResponse,
+                auto_select: true,
+                auto: true
+            });
+            google.accounts.id.renderButton(
+                document.getElementById("google-button"),
+                { theme: "filled_blue", size: "medium", width: '200' }  // customization attributes
+            );
+            // also display the One Tap dialog on right side
+            // important for auto login
+            google.accounts.id.prompt(); 
+        }
+
+
+        function signOut() {
+            google.accounts.id.disableAutoSelect();
+            // do anything on logout
+            location.reload();
+        }
+    </script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</body>
+
+</html>
