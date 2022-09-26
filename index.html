@@ -9,16 +9,15 @@
   
     function initClient() {
       // In practice, your app can retrieve one or more discovery documents.
-      var discoveryUrl = 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest';
-  
+    //   https://accounts.google.com/o/oauth2/auth?response_type=code
       // Initialize the gapi.client object, which app uses to make API requests.
       // Get API key and client ID from API Console.
       // 'scope' field specifies space-delimited list of access scopes.
       gapi.client.init({
-          'apiKey': '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',
-          'clientId': '623021744642-jdl436miod64hkef748voisfejshh3g2.apps.googleusercontent.com',
-          'discoveryDocs': [discoveryUrl],
-          'scope': SCOPE
+          'apiKey': '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',
+          'clientId': '295368552920-642unvam8ss74m6608hl0iusb86cepqa.apps.googleusercontent.com',
+       
+          'scope': ['https://www.googleapis.com/auth/plus.me', 'https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/userinfo.profile']
       }).then(function () {
         GoogleAuth = gapi.auth2.getAuthInstance();
   
