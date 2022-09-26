@@ -1,11 +1,11 @@
 
 <script>
     var YOUR_CLIENT_ID = '623021744642-jdl436miod64hkef748voisfejshh3g2.apps.googleusercontent.com';
-    var YOUR_REDIRECT_URI = 'https://demo-test-123-456.netlify.app';
+    var YOUR_REDIRECT_URI = 'https://demo-test-123-456.netlify.app/callback';
   var fragmentString = location.hash.substring(1);
   console.log("🚀 ~ file: index.html ~ line 6 ~ fragmentString", fragmentString)
 
-  // Parse query string to see if page request is coming from OAuth 2.0 server.
+  // Parse query string to see if page request is coming from OAuth 2.0 server. 
   var params = {};
   var regex = /([^&=]+)=([^&]*)/g, m;
   while (m = regex.exec(fragmentString)) {
