@@ -1,8 +1,9 @@
 <html><head></head><body>
   <script>
     var YOUR_CLIENT_ID = '623021744642-jdl436miod64hkef748voisfejshh3g2.apps.googleusercontent.com';
-    var YOUR_REDIRECT_URI = 'https://demo-test-123-456.netlify.app/callback';
+    var YOUR_REDIRECT_URI = 'https://demo-test-123-456.netlify.app/';
     var fragmentString = location.hash.substring(1);
+    console.log("🚀 ~ file: index.html ~ line 6 ~ fragmentString", fragmentString)
   
     // Parse query string to see if page request is coming from OAuth 2.0 server.
     var params = {};
@@ -21,6 +22,7 @@
     // Otherwise, start OAuth 2.0 flow.
     function trySampleRequest() {
       var params = JSON.parse(localStorage.getItem('oauth2-test-params'));
+      console.log("🚀 ~ file: index.html ~ line 25 ~ trySampleRequest ~ params", params)
       if (params && params['access_token']) {
         var xhr = new XMLHttpRequest();
         xhr.open('GET',
@@ -71,6 +73,7 @@
   
       // Add form to page and submit it to open the OAuth 2.0 endpoint.
       document.body.appendChild(form);
+      console.log("🚀 ~ file: index.html ~ line 76 ~ oauth2SignIn ~ form", form)
       form.submit();
     }
   </script>
